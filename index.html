@@ -1,0 +1,266 @@
+html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Henshall - Multimedia Portfolio</title>
+    <style>
+        /* CSS Reset and Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-color: #000000;          /* Black background */
+            --accent-gray: #333333;       /* Gray accent color */
+            --card-bg: #ffffff;           /* White content cards */
+            --text-dark: #222222;         /* Dark text for inside white cards */
+            --text-light: #ffffff;        /* Crisp white text for dark areas */
+            --nav-bg: #1a1a1a;            /* Dark navigation bar background */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--nav-bg);
+            border-bottom: 2px solid var(--accent-gray);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--text-light);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #cccccc;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-light);
+            border-bottom: 2px solid var(--text-light);
+        }
+
+        /* Header Banner Slideshow */
+        .banner-container {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 4px solid var(--accent-gray);
+        }
+
+        .slideshow {
+            display: flex;
+            width: 300%; /* 3 images = 300% width */
+            height: 100%;
+            animation: slideAnimation 12s infinite ease-in-out;
+        }
+
+        .slideshow img {
+            width: 33.333%; /* Each image takes 1/3 of the container */
+            height: 100%;
+            object-fit: cover; /* Keeps images crisp and scaled correctly */
+        }
+
+        /* CSS Animation to cycle through the 3 images */
+        @keyframes slideAnimation {
+            0% { transform: translateX(0%); }
+            28% { transform: translateX(0%); }
+            33% { transform: translateX(-33.333%); }
+            61% { transform: translateX(-33.333%); }
+            66% { transform: translateX(-66.666%); }
+            95% { transform: translateX(-66.666%); }
+            100% { transform: translateX(0%); }
+        }
+
+        /* Main Content Layout */
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Profile White Content Card */
+        .profile-card {
+            background-color: var(--card-bg);
+            color: var(--text-dark);
+            border-radius: 8px;
+            padding: 40px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-image-container {
+            flex: 0 0 220px;
+        }
+
+        .profile-image-container img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%; /* Makes cat.png a perfect circle */
+            border: 4px solid var(--accent-gray);
+        }
+
+        .profile-text-container {
+            flex: 1;
+        }
+
+        .profile-text-container h1 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #000000;
+            border-bottom: 2px solid var(--accent-gray);
+            padding-bottom: 10px;
+        }
+
+        .profile-text-container p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Placeholder style to make your fill-in areas obvious */
+        .fill-in-placeholder {
+            background-color: #f0f0f0;
+            border-left: 4px dashed #888888;
+            padding: 10px 15px;
+            font-style: italic;
+            color: #555555;
+        }
+
+        /* Footer Section */
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            border-top: 1px solid var(--accent-gray);
+            color: #888888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design for smaller screens */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+            .banner-container {
+                height: 200px;
+            }
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+            }
+            .profile-image-container {
+                flex: 0 0 160px;
+            }
+            .profile-image-container img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">DANIEL HENSHALL</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="photoshop.html">Photoshop</a></li>
+                <li><a href="illustrator.html">Illustrator</a></li>
+                <li><a href="premiere.html">Premiere Pro Videos</a></li>
+                <li><a href="animation.html">Animation</a></li>
+                <li><a href="final.html">Final Project</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 2. Header Banner Image Slideshow -->
+    <div class="banner-container">
+        <div class="slideshow">
+            <img src="in.png" alt="Portfolio Banner Work 1">
+            <img src="the.png" alt="Portfolio Banner Work 2">
+            <img src="hat.png" alt="Portfolio Banner Work 3">
+        </div>
+    </div>
+
+    <!-- 3. Page Layout Main Section -->
+    <main>
+        <div class="profile-card">
+            
+            <!-- Left Side: Profile Image -->
+            <div class="profile-image-container">
+                <img src="cat.png" alt="Daniel's Profile Image">
+            </div>
+            
+            <!-- Right Side: Paragraphs -->
+            <div class="profile-text-container">
+                <h1>Welcome to My Portfolio</h1>
+                
+                <!-- Paragraph 1 Placeholder -->
+                <p class="fill-in-placeholder">
+                    [Paragraph 1: Delete this text and replace it with your own description explaining the purpose of this portfolio, showcasing the different tech skills and projects you have learned throughout your Multimedia class.]
+                </p>
+                
+                <!-- Paragraph 2 Placeholder -->
+                <p class="fill-in-placeholder">
+                    [Paragraph 2: Delete this text and replace it with your own details listing out your current creative skills, what tools you enjoy using, and what milestones or concepts you plan to tackle next in this class.]
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Daniel Henshall. Multimedia Portfolio System.</p>
+    </footer>
+
+</body>
+</html>
